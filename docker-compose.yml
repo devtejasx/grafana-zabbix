@@ -24,7 +24,7 @@ services:
       GF_INSTALL_PLUGINS: grafana-clickhouse-datasource
 
   database:
-    image: postgres:18@sha256:e3d24f6906d0760bf4da0dae872415391ededefad23fd471c47dc53b0ddf3c42
+    image: postgres:18@sha256:eb63372c1e05c755f55fa30cbd07aecc443676fc6c0fa90b9002d01537841e1a
     command: postgres -c 'max_connections=200'
     environment:
       POSTGRES_USER: zabbix
@@ -75,7 +75,7 @@ services:
   # fixtures. $$f (not $f) so docker compose passes a literal $ to the shell.
   # Depends on zabbix-web being healthy so the Zabbix DB schema already exists.
   e2e-data-loader:
-    image: postgres:18@sha256:e3d24f6906d0760bf4da0dae872415391ededefad23fd471c47dc53b0ddf3c42
+    image: postgres:18@sha256:eb63372c1e05c755f55fa30cbd07aecc443676fc6c0fa90b9002d01537841e1a
     depends_on:
       zabbix-web:
         condition: service_healthy
